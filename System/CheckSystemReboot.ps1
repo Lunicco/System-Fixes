@@ -1,15 +1,20 @@
 ﻿<#
-.Synopsis
-  Check system reboot
+.SYNOPSIS
+    Check system reboot
 .DESCRIPTION
-  Check system reboot
-.EXAMPLE
-   Author: Lunicco
+    Checks if system uptime is greater than UptimeDays variable (15 days by default), in Positive case, asks about system reboot.
+.NOTES
+    Version:        1.0
+    Author:         Lunicco
+    Creation Date:  27-07-2021
 #>
+
+#-------------------------------------------------------------[Init]--------------------------------------------------------------#
 $global:OutputVarible=" "
 $global:RequiresReboot = $false
 $global:UptimeDays=15
 
+#-----------------------------------------------------------[Functions]-----------------------------------------------------------#
 function CheckRestart
 {
     try
@@ -40,6 +45,7 @@ function CheckRestart
   
 }
 
+#-----------------------------------------------------------[Execution]------------------------------------------------------------#
 CheckRestart
 if ($RequiresReboot)
     {
